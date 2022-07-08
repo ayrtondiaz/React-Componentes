@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.carrito-h{
+  font-size: 2rem;
+  background-color: black;
+  color: white
+}
+.btn-rad{
+  border-radius: 20%;
+}
