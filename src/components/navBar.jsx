@@ -1,16 +1,17 @@
 
 import React from 'react';
-import CartWidget from "./cartWidget";
+import CartWidget from "./CartWidget";
 
 const NavBar=()=>{
-    return(     
-              <nav className="navbar navbar-expand-lg bg-dark  navbar-dark justify-content-between">
-          <div className="container justify-content-between">
+    return(
+    <div className='row justify-content-center text-center'>
+      <nav className="navbar navbar-expand-lg bg-dark  navbar-dark ">
+          <div className="container">
             <a className="navbar-brand" href="#">LOGO</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+            <div className="collapse navbar-collapse text-center" id="navbarNavDropdown">
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">Home</a>
@@ -38,6 +39,8 @@ const NavBar=()=>{
             </div>
           </div>
         </nav>
+    </div>     
+              
           );  }
 
 export default NavBar;
