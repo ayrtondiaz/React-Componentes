@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "imagen": "./img/placa.jpg",
+        "nombre": "RTX 3060",
+        "precio": 90000
+    },
+    {
+        "id": 2,
+        "imagen": "./img/teclado.jpg",
+        "nombre": "Teclado Gamer",
+        "precio": 5000
+    },
+    {
+        "id": 3,
+        "imagen": "./img/juego.jpg",
+        "nombre": "God of war 4",
+        "precio": 4500
+    }
+]
