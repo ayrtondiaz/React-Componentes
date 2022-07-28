@@ -1,14 +1,20 @@
 import React from 'react'
 import Swal from 'sweetalert2'
+import { useState } from 'react'
+import ItemCount from './ItemCount'
+import {Link} from "react-router-dom"
 
 const ItemDetail = ({data}) => {
+  
+  const [cart , setCart] = useState(false);
+  const onAdd=()=>{
+    setCart(true)
+    Swal.fire({
+      icon: 'success',
+      title: 'Añadiste correctamente al carrito',
+      })
+  }
 
-    const añadir=()=>{         
-        Swal.fire({
-        icon: 'success',
-        title: 'Añadiste correctamente al carrito',
-        })
-    }
 
   return (
     <>
@@ -26,8 +32,16 @@ const ItemDetail = ({data}) => {
         <p className="card-text">{data.info}</p>
         <p className="card-text">{data.category}</p>
         <p className="card-text">Precio:<small className="text-muted">{data.precio}</small></p>
+      </div>    
+      <div className='cart-button'>
+        {
+          cart
+          ? <button className='btn btn-success' style={{color:'white'}}><Link to="/cart"> Ir al Carrito </Link></button>
+          : <ItemCount initial={1} stock={6} onAdd={onAdd}></ItemCount>
+        }
+
+      {/* <button href="#" className="btn btn-danger" onClick={añadir}>Añadir al Carrito</button> */}
       </div>
-      <button href="#" className="btn btn-danger" onClick={añadir}>Añadir al Carrito</button>
     </div>
   </div>
 </div>

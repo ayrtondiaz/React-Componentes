@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
-const ItemCount = ({initial, stock}) => {
+const ItemCount = ({initial, stock, onAdd}) => {
 
     const [counter, setCounter]= useState(initial)
     const add =()=>{
@@ -18,13 +18,13 @@ const ItemCount = ({initial, stock}) => {
             setCounter(counter-1);
         }
     }
-    const confirmar=()=>{         
-            Swal.fire({
-            icon: 'success',
-            title: 'Compra Confirmada',
-            text: 'Esta llevando '+counter+' zapatillas'
-            })
-    }
+    // const confirmar=()=>{         
+    //         Swal.fire({
+    //         icon: 'success',
+    //         title: 'Compra Confirmada',
+    //         text: 'Esta llevando '+counter+' zapatillas'
+    //         })
+    // }
 
 
 
@@ -32,13 +32,12 @@ const ItemCount = ({initial, stock}) => {
 <div className="row justify-content-center text-center">
   <div className="col-sm-3">
     <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Zapatillas</h5>
+      <div className="card-body">        
         <p className="card-text">{counter}</p>
         <button href="#" className="btn btn-success" onClick={add}>+</button>
         <button href="#" className="btn btn-danger" onClick={substract}>-</button>
       </div>
-      <button href="#" className="btn btn-secondary" onClick={confirmar}>Confirmar</button>
+      <button href="#" className="btn btn-secondary" onClick={()=>onAdd(counter)}>Confirmar</button>
     </div>
   </div>
   </div>
