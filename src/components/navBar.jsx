@@ -2,6 +2,7 @@
 import React from 'react';
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import '../Styles/Estilos.css'
 
 const NavBar=()=>{
     return(
