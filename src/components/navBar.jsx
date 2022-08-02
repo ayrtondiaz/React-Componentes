@@ -6,9 +6,9 @@ import '../Styles/Estilos.css'
 
 const NavBar=()=>{
     return(
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
-        <div className="navbar-brand"><Link to="/">Sal.TECH</Link></div>
+        <div className="navbar-brand" style={{color:"white"}}><Link to="/">Sal.TECH</Link></div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -26,8 +26,8 @@ const NavBar=()=>{
             <li className="nav-item ">
             </li>
           </ul>
-          <span className="navbar-text">
-              <CartWidget></CartWidget>          </span>
+          <span className="navbar-text"><Link to="/cart"> <CartWidget></CartWidget> </Link>
+                      </span>
         </div>
       </div>
     </nav>

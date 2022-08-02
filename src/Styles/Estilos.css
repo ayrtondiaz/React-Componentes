@@ -2,3 +2,20 @@ a{
     color: white ;
     text-decoration: none ;
 }
+.itemCart{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: auto;
+}
+.img-w{
+    width: 60%;
+    height: auto;
+}
+
+.fz{
+    font-size: small;
+}
+.navbar{
+    background-color: black;
+}
