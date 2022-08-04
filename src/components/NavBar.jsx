@@ -18,7 +18,7 @@ const NavBar=()=>{
               <div className="nav-link active" ><Link to="/category/pc">PC</Link></div>
             </li>
             <li className="nav-item">
-              <div className="nav-link active" ><Link to="/category/ps4">PLAY STATION</Link></div>
+              <div className="nav-link active" ><Link to="/category/accesorios">ACCESORIOS</Link></div>
             </li>
             <li className="nav-item">
               <div className="nav-link active" ><Link to="/category/pc">Nosotros</Link></div>
