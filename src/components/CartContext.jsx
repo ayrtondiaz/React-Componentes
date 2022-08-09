@@ -10,9 +10,9 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({children})=>{
     const [cartList, setCartList]=useState([]);
 
-    const isInCart= (id)=>{
-        cartList.find((producto)=>producto.id!==id);
-    }
+    const isInCart = (id) =>
+    cartList.find((product) => product.id === id) ? true : false;
+
     const clearCart=()=>{
         setCartList([]);
     }
