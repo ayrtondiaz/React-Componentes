@@ -4,9 +4,10 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from './CartContext';
 import { Link } from "react-router-dom";
 import ItemCart from "./ItemCart";
+import Swal from 'sweetalert2'
 
 const Cart = () => {
-	const { cartList, totalPrice } = useCartContext();
+	const { cartList, totalPrice, clearCart } = useCartContext();
 	
 	const order = {
 		buyer: {
@@ -27,14 +28,23 @@ const Cart = () => {
 	const handleClick = () => {
 		const db = getFirestore();
 		const ordersCollection = collection(db, "orders");
-		addDoc(ordersCollection, order).then(({ id }) => console.log(id));
+		addDoc(ordersCollection, order).then(({ id }) => 
+		Swal.fire({
+			icon: 'success',
+			title: 'Realizaste correctamente la compra',
+			text: 'Tu ID de compra es '+ id,
+			}));
+		
+		clearCart();
+		
+
 	};
 
 	if(cartList.length ===0){
 		return(
 		<>
 			<p> No hay elementos en el carrito</p>
-			<Link to='/'>Hacer compras</Link>
+			<Link to='/' className='a-detalle btn btn-dark'>Hacer compras</Link>
 			{console.log("no hay nada")}
 		</>
 		)
@@ -48,7 +58,7 @@ const Cart = () => {
 						<ItemCart key={product.id} product={product} />
 						))}
 					<p>Total: {totalPrice()}</p>
-					<button onClick={handleClick}>Emitir compra</button>
+					<button onClick={handleClick} className='a-detalle btn btn-dark btn-outline-light'>Emitir compra</button>
 			</div>
 		</div>
 		</div>

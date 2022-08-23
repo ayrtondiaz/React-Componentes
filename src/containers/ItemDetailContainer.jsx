@@ -2,12 +2,10 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ItemDetail from '../components/ItemDetail'
-//  import {products} from '../utils/Products'
 import { useParams } from 'react-router-dom';
+import { firestoreFetchOne } from '../utils/FirestoreFetch';
 
-import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
- 
 
 const ItemDetailContainer = () => {
 
@@ -15,15 +13,15 @@ const ItemDetailContainer = () => {
  const {detailId} = useParams();
 
 
- useEffect(()=>{
-   const querydb=getFirestore();
-   const queryDoc=doc(querydb,'Products',detailId);
-   getDoc(queryDoc)
-       .then(res=>setData({id:res.id, ...res.data()}))
+ useEffect(() => {
+  firestoreFetchOne(detailId)
+    .then((result) => setData(result))
+    .catch((error) => console.log(error));
+  }, [detailId]);
 
- },[detailId])
+
  return(
    <ItemDetail data={data}/>
  );
-}; 
+};
 export default ItemDetailContainer;

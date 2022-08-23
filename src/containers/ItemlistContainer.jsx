@@ -1,76 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-// import ItemCount from '../components/ItemCount';
 import ItemList from '../components/ItemList';
-// import {products} from '../utils/Products'
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, getFirestore,query,where } from "firebase/firestore";
+import { firestoreFetch } from '../utils/FirestoreFetch';
+import '../Styles/Estilos.css'
 
 
-
-export const ItemListContainer = ({ texto }) => {
+ const ItemListContainer = () => {
 	const [data, setData] = useState([]);
 	const { categoryId } = useParams();
 
 	useEffect(() => {
-		const querydb = getFirestore();
-		const queryCollection = collection(querydb, "Products");
-		if (categoryId) {
-			const queryFilter = query(
-				queryCollection,
-				where("category", "==", categoryId),
-			);
-			getDocs(queryFilter).then((res) =>
-				setData(
-					res.docs.map((product) => ({ id: product.id, ...product.data() })),
-				),
-			);
-		} else {
-			getDocs(queryCollection).then((res) =>
-				setData(
-					res.docs.map((product) => ({ id: product.id, ...product.data() })),
-				),
-			);
-		}
+		firestoreFetch(categoryId)
+		.then((result)=> setData(result))
+		.catch((error)=> console.log(error));
 	}, [categoryId]);
-// useEffect(()=>{
 
-//     const firestoreFetch = async()=>{
-//         const querySnapshot = await getDocs(collection(db, "products"));
-//         const dataFromFirestore = querySnapshot.docs.map((doc) => ({
-//             id: doc.id,
-//             ...doc.data()
-//         }))
-//         return dataFromFirestore
-//     }
-// firestoreFetch()
-//     .then(result=> setData(result))
-//     .catch(err=> console.log(err))
-// },[categoryid]);
-
-// useEffect(() => {
-//     if (categoryid === undefined) {
-//         const getData = new Promise(resolve => {
-//             setTimeout(() => {
-//                 resolve(products);
-//             }, 1000)
-//         });
-//         getData.then(res => setData(res));
-//     }else{
-//         const getData = new Promise(resolve => {
-//             setTimeout(() => {
-//                 resolve(products.filter(item => item.category === categoryid));
-//             }, 1000)
-//         });
-//         getData.then(res => setData(res));
-//     }
-// }, [categoryid]);
 
     return(
         <>
-        {/* <ItemCount initial={1} stock={5} ></ItemCount> */}
+		<div className='row row-cols-1 row-cols-md-4 g-4'>
         <ItemList data={data}></ItemList>
+		</div>
         </>
 
     );

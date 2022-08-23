@@ -33,11 +33,12 @@ const ItemCount = ({initial, stock, onAdd}) => {
   <div className="col-sm-3">
     <div className="card">
       <div className="card-body">        
+        <p className="card-text">Cantidad</p>
         <p className="card-text">{counter}</p>
         <button href="#" className="btn btn-success" onClick={add}>+</button>
         <button href="#" className="btn btn-danger" onClick={substract}>-</button>
       </div>
-      <button href="#" className="btn btn-secondary" onClick={()=>onAdd(counter)}>Confirmar</button>
+      <button href="#" className="a-detalle btn btn-dark btn-outline-light" onClick={()=>onAdd(counter)}>Confirmar</button>
     </div>
   </div>
   </div>

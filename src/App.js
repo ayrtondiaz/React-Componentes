@@ -11,7 +11,9 @@ import './utils/FirebaseConfig';
 
 function App() {
   return (
-    <div classsName="App"> 
+	<div classsName="App"> 
+	  <div className='Container-main'>
+
       <BrowserRouter>
 	<CartContextProvider>
 			<NavBar />
@@ -24,6 +26,7 @@ function App() {
 	</CartContextProvider>
 		</BrowserRouter>
     </div>   
+	</div>
   );
 }
 
