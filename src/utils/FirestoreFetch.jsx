@@ -24,27 +24,6 @@ import {
     }));
     return dataFromFirestore;
   };
-//   useEffect(() => {
-//     const querydb = getFirestore();
-//     const queryCollection = collection(querydb, "Products");
-//     if (categoryId) {
-//         const queryFilter = query(
-//             queryCollection,
-//             where("category", "==", categoryId),
-//         );
-//         getDocs(queryFilter).then((res) =>
-//             setData(
-//                 res.docs.map((product) => ({ id: product.id, ...product.data() })),
-//             ),
-//         );
-//     } else {
-//         getDocs(queryCollection).then((res) =>
-//             setData(
-//                 res.docs.map((product) => ({ id: product.id, ...product.data() })),
-//             ),
-//         );
-//     }
-// }, [categoryId]);
   export const firestoreFetchOne = async (idItem) => {
     const db = getFirestore();
     const docRef = doc(db, "Products", idItem);

@@ -1,5 +1,4 @@
-import React from 'react'
-//  import { CartContext } from './CartContext'
+import React from 'react';
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from './CartContext';
 import { Link } from "react-router-dom";

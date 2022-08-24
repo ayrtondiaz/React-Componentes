@@ -44,11 +44,6 @@ const CartContextProvider = ({children})=>{
 			(acumulador, productoActual) => acumulador + productoActual.quantity,
 			0,
 		);
-    // const addProduct = (item, newQuantity) => {
-    //     	 	const newCart= cartList.filter(prod=>prod.id !== item.id);
-    //             newCart.push({...item, quantity: newQuantity});
-    //             setCartList(newCart);
-    //     };
     console.log("carrito:",cartList);
 
     return(
